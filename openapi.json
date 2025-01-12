@@ -1,0 +1,43 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "World Time API",
+    "description": "Consulta a data e hora atual no Brasil usando a World Time API.",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "https://worldtimeapi.org/api/timezone/America/Sao_Paulo"
+    }
+  ],
+  "paths": {
+    "/": {
+      "get": {
+        "summary": "Obter data e hora atual",
+        "responses": {
+          "200": {
+            "description": "Sucesso",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "datetime": {
+                      "type": "string",
+                      "description": "Data e hora no formato ISO 8601"
+                    },
+                    "timezone": {
+                      "type": "string",
+                      "description": "Fuso horário"
+                    }
+                  },
+                  "required": ["datetime"]
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
